@@ -1,10 +1,10 @@
 function APIkurssit(){
-    fetch("https://luentomuistiinpano-api.netlify.app/.netlify/functions/courses")
+    return fetch("https://luentomuistiinpano-api.netlify.app/.netlify/functions/courses")
         .then((kurssihaku) => {
             return kurssihaku.json();
         })
-        .then((kurssit) => {
-            console.log(kurssit);
+        .then((kurssitiedot) => {
+            return kurssitiedot;
         });
 
 }
