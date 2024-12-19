@@ -8,7 +8,7 @@ function ListaaKurssit() {
         APIkurssit().then((kurssitiedot) => {
             asetaKurssit(kurssitiedot)
         });
-    });
+    }, []);
 
     return(
         <div>
