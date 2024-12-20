@@ -1,9 +1,9 @@
-function Footer() {
-    return (
-      <div>
-        <p>Tallennetut kurssit ja muistiinpanot tänne.</p>
-      </div>
+function Footer(){
+    return(
+        <div>
+            <p>Tallennetut kurssit näkyy täällä</p>
+        </div>
     );
-  }
-  
-  export default Footer;
+}
+
+export default Footer;
