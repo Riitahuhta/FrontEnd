@@ -1,10 +1,10 @@
-import DropDown from "./DropDown";
+import Muistiinpanot from "./MuistiinPanot";
 
 function MainBody() {
     return (
-      <div>
-        <DropDown />
-      </div>
+          <div>
+          <Muistiinpanot/>
+          </div>
     );
   }
   

@@ -1,41 +1,39 @@
 import ListaaKurssit from "./Lista";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-function DropDown() {
+function DropDown({ valittuKurssi, asetaValittuKurssi }) {
   const [avaa, asetaAuki] = useState(false);
-  const [valittuArvo, asetaValittuArvo] = useState("");
 
   const dropDown = () => {
     asetaAuki(!avaa);
   };
 
-  const valittu = (kurssi) => {
-    asetaValittuArvo(kurssi.name);
+  const valittuKurssiHandler = (kurssitiedot) => {
+    asetaValittuKurssi(kurssitiedot); // Päivitä valittu kurssi kokonaisena objektina
     asetaAuki(false);
   };
 
-
-    return (
+  return (
+    <div>
+      <button onClick={dropDown}>Valittavissa olevat kurssit</button>
+      {avaa && 
+      <ListaaKurssit valittuKurssi={valittuKurssiHandler} />}
       <div>
-        <button onClick={dropDown}
-        //Tähän pitää keksiä joku style
-        >valittavissa olevat kurssit</button>
-        {avaa && (
-          <ListaaKurssit valittuKurssi={valittu}/>
-        )}
-
-        <div>
-          <p></p>
         <input
           type="text"
-          value={valittuArvo}
+          value={valittuKurssi?.name || ""}
           readOnly
+          placeholder="Valitse kurssi"
         />
-        </div>
-        <p>Tähän tulee boxi ja tekstikenttä johon tulee muistiinpanot</p>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-  export default DropDown;
-  
+DropDown.propTypes = {
+  valittuKurssi: PropTypes.object, // Kurssiobjekti
+  asetaValittuKurssi: PropTypes.func.isRequired, // Funktio kurssin asettamiseen
+};
+
+export default DropDown;

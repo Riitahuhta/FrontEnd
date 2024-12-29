@@ -17,10 +17,10 @@ function ListaaKurssit({valittuKurssi}) {
     return(
         <div>
             <ul>
-                {kurssit.map((kurssi) => (
-                    <li key={kurssi.id}>
-                    <button onClick={() => valittuKurssi(kurssi)}>
-                        {kurssi.name}
+                {kurssit.map((kurssitiedot) => (
+                    <li key={kurssitiedot.id}>
+                    <button onClick={() => valittuKurssi(kurssitiedot)}>
+                        {kurssitiedot.name}
                     </button>
                     </li>
                 ))}
